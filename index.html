@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Christian Lambert | Astrophysics</title>
+  <meta name="description" content="Research in galaxy dynamics and astrophysics.">
+  <style>
+    :root {
+      --bg: #10141e;
+      --panel: #191f2d;
+      --text: #edf1f7;
+      --muted: #aab5c7;
+      --accent: #8bc5ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    header, main, footer {
+      width: min(900px, 90%);
+      margin: auto;
+    }
+
+    header {
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #303849;
+    }
+
+    a { color: var(--accent); }
+
+    nav { display: flex; gap: 18px; flex-wrap: wrap; }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    .hero { padding: 90px 0 65px; }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      line-height: 1.1;
+      margin: 12px 0 20px;
+    }
+
+    h2 { margin-top: 0; }
+
+    .intro {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.15rem;
+    }
+
+    section { padding: 35px 0; }
+
+    .project {
+      background: var(--panel);
+      border: 1px solid #303849;
+      border-radius: 14px;
+      padding: 26px;
+      margin: 20px 0;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 10px;
+      margin: 4px 4px 4px 0;
+      border-radius: 20px;
+      background: #252f42;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    footer {
+      border-top: 1px solid #303849;
+      padding: 25px 0;
+      color: var(--muted);
+    }
+
+    @media (max-width: 550px) {
+      .hero { padding-top: 60px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>Your Name</strong>
+    <nav>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">Astrophysics · Galaxy Dynamics</div>
+      <h1>Understanding galaxies through their motion.</h1>
+      <p class="intro">
+        I study the dynamics of galaxies and use observational data
+        and computational modeling to investigate how matter moves
+        and how galaxies are structured.
+      </p>
+      <p>
+        <a href="#research">Explore my research ↓</a>
+      </p>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+      <article class="project">
+        <div class="eyebrow">Current project</div>
+        <h3>Comparing CO and Hα gas kinematics</h3>
+        <p>
+          How do molecular and ionized gas trace the dynamical
+          structure of galaxies? I use XS3D to model velocity fields
+          and harmonic components, comparing CO and Hα observations
+          to investigate departures from circular motion.
+        </p>
+        <span class="tag">Galaxy dynamics</span>
+        <span class="tag">XS3D</span>
+        <span class="tag">Kinematics</span>
+        <p><em>Research summary and results coming soon.</em></p>
+      </article>
+    </section>
+
+    <section id="projects">
+      <h2>Projects & code</h2>
+      <p>
+        Computational tools, data analysis, and future research
+        projects will be collected here.
+      </p>
+      <p><a href="https://github.com/">GitHub repositories →</a></p>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I'm a researcher interested in astrophysics, computational
+        methods, and understanding the physical processes that
+        shape galaxies.
+      </p>
+      <p><a href="cv.pdf">View my CV (PDF)</a></p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Email: <a href="mailto:christian.h.lambert-1@ou.edu">
+          christian.h.lambert-1@ou.edu
+        </a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Your Name · Built with GitHub Pages
+  </footer>
+</body>
+</html>
