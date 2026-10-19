@@ -1,0 +1,822 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Your Name | Astrophysics</title>
+  <meta name="description" content="Academic website of Your Name, featuring research in astrophysics and galaxy dynamics.">
+
+  <style>
+    :root {
+      --navy: #183653;
+      --blue: #315f89;
+      --ink: #253345;
+      --muted: #657386;
+      --line: #e3e8ee;
+      --paper: #ffffff;
+      --soft: #f6f8fb;
+      --width: 1050px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(var(--width), 88%);
+      margin: 0 auto;
+    }
+
+    .site-header {
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.2rem;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: #46566a;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--navy);
+      border-radius: 5px;
+      padding: 7px 11px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 92px 0 78px;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(ellipse at 95% 0%, #edf4fa 0%, transparent 45%),
+        linear-gradient(180deg, #ffffff, #fbfcfe);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      align-items: center;
+      gap: 64px;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    h1, h2, h3 {
+      color: var(--navy);
+      line-height: 1.25;
+    }
+
+    h1, h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+      letter-spacing: -0.025em;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 5.5vw, 4.35rem);
+      margin: 17px 0 20px;
+    }
+
+    .hero-subtitle {
+      color: #42546a;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      max-width: 610px;
+      margin-bottom: 27px;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 0.94rem;
+      font-weight: 600;
+    }
+
+    .portrait-placeholder {
+      aspect-ratio: 4 / 5;
+      max-width: 290px;
+      width: 100%;
+      justify-self: end;
+      background: linear-gradient(145deg, #e8eef4, #d5e0eb);
+      border: 1px solid #d8e1ea;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60758b;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    .section {
+      padding: 75px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-heading {
+      max-width: 690px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 2.65rem);
+      margin: 8px 0 13px;
+    }
+
+    .section-heading p,
+    .about-copy p {
+      color: var(--muted);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 55px;
+      align-items: start;
+    }
+
+    .about-copy p {
+      margin-bottom: 16px;
+    }
+
+    .sidebar {
+      border-left: 3px solid #dbe7f2;
+      padding: 4px 0 4px 22px;
+    }
+
+    .sidebar h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .sidebar ul {
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .sidebar li {
+      margin-bottom: 5px;
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .research-card {
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      overflow: hidden;
+      background: white;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .research-card:hover {
+      border-color: #b3c9dd;
+      transform: translateY(-2px);
+    }
+
+    .research-image {
+      width: 100%;
+      height: 205px;
+      display: block;
+      object-fit: cover;
+      background: var(--soft);
+    }
+
+    .research-image-placeholder {
+      height: 205px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #eaf0f6, #f8fafc);
+      color: #637990;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.2rem;
+    }
+
+    .card-body {
+      padding: 24px;
+    }
+
+    .card-label {
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .card-body h3 {
+      font-size: 1.18rem;
+      margin: 9px 0 10px;
+    }
+
+    .card-body p {
+      color: var(--muted);
+      font-size: 0.93rem;
+      margin-bottom: 15px;
+    }
+
+    .record-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .record {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 20px;
+      padding: 23px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .record-year {
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding-top: 2px;
+    }
+
+    .record h3 {
+      font-family: inherit;
+      font-size: 1.02rem;
+      font-weight: 650;
+      margin-bottom: 5px;
+    }
+
+    .record p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .record-links {
+      margin-top: 7px;
+      font-size: 0.88rem;
+    }
+
+    .cv-box {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      padding: 30px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .cv-box h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.5rem;
+      font-weight: normal;
+      margin-bottom: 7px;
+    }
+
+    .cv-box p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .button {
+      display: inline-block;
+      flex-shrink: 0;
+      padding: 10px 17px;
+      background: var(--navy);
+      color: white;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .button:hover {
+      background: var(--blue);
+      text-decoration: none;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+    }
+
+    .contact-grid h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.4rem;
+      font-weight: normal;
+      margin-bottom: 12px;
+    }
+
+    .contact-grid p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    footer {
+      padding: 24px 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        min-height: 65px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        padding: 20px 6%;
+        background: white;
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hero {
+        padding: 65px 0;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .research-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        gap: 30px;
+      }
+
+      .portrait-placeholder {
+        justify-self: start;
+        max-width: 210px;
+        aspect-ratio: 5 / 4;
+      }
+
+      .section {
+        padding: 58px 0;
+      }
+
+      .about-grid {
+        gap: 28px;
+      }
+
+      .record {
+        grid-template-columns: 65px 1fr;
+        gap: 13px;
+      }
+
+      .cv-box {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 24px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home">YOUR NAME</a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-controls="navLinks" aria-expanded="false">
+        Menu
+      </button>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#presentations">Presentations</a></li>
+          <li><a href="#cv">CV</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Astrophysics · Galaxy Dynamics</p>
+          <h1>Your Name</h1>
+          <p class="hero-subtitle">
+            Understanding galaxies through their dynamics.
+          </p>
+          <p class="hero-description">
+            I study the motions of stars and gas to investigate the
+            gravitational potentials, mass distributions, and physical
+            structure of galaxies.
+          </p>
+          <div class="hero-links">
+            <a href="#research">Explore my research →</a>
+            <a href="#publications">Selected publications →</a>
+            <a href="#contact">Get in touch →</a>
+          </div>
+        </div>
+
+        <div class="portrait-placeholder">
+          Optional: add a professional photo here
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2>Research and scientific interests</h2>
+          <p>
+            My work uses astronomical observations and computational
+            modeling to understand the dynamics of galaxies.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>
+              I am a [your academic position] at [your university],
+              working on questions in astrophysics and galaxy dynamics.
+            </p>
+            <p>
+              My research focuses on how the observed motions of gas and
+              stars can constrain the gravitational potential and mass
+              distribution of galaxies. I am particularly interested in
+              the connection between observational data, dynamical models,
+              and the physical interpretation of their results.
+            </p>
+            <p>
+              I also work with computational tools for analyzing
+              astronomical observations, testing model assumptions, and
+              visualizing scientific results.
+            </p>
+          </div>
+
+          <aside class="sidebar">
+            <h3>Research interests</h3>
+            <ul>
+              <li>Galaxy dynamics</li>
+              <li>Gas and stellar kinematics</li>
+              <li>Gravitational potentials</li>
+              <li>Dark matter and mass distributions</li>
+              <li>Computational astrophysics</li>
+              <li>Scientific data analysis</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="research">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Research</p>
+          <h2>Selected projects</h2>
+          <p>
+            My research connects observed galactic kinematics with
+            physical models of galaxy structure. These sections can
+            be expanded with figures, methods, and project publications.
+          </p>
+        </div>
+
+        <div class="research-grid">
+          <article class="research-card">
+            <div class="research-image-placeholder">
+              Galaxy observations
+            </div>
+            <div class="card-body">
+              <p class="card-label">Current research</p>
+              <h3>Comparing gas kinematics in galaxies</h3>
+              <p>
+                Comparing CO and Hα observations to investigate how
+                different gas tracers reveal galaxy rotation, velocity
+                dispersion, and underlying dynamical structure.
+              </p>
+              <a href="#contact">Ask about this project →</a>
+            </div>
+          </article>
+
+          <article class="research-card">
+            <div class="research-image-placeholder">
+              Kinematic modeling
+            </div>
+            <div class="card-body">
+              <p class="card-label">Methods</p>
+              <h3>Three-dimensional velocity-field modeling</h3>
+              <p>
+                Using tools such as XS3D to model observed gas kinematics
+                and examine disk geometry, rotation, and departures
+                from simple dynamical descriptions.
+              </p>
+              <a href="#publications">Related publications →</a>
+            </div>
+          </article>
+
+          <article class="research-card">
+            <div class="research-image-placeholder">
+              Gravity and mass
+            </div>
+            <div class="card-body">
+              <p class="card-label">Galaxy structure</p>
+              <h3>Gravitational potentials and mass distributions</h3>
+              <p>
+                Investigating how observed motions constrain galactic
+                gravitational fields and the distribution of stars,
+                gas, dark matter, and central massive objects.
+              </p>
+              <a href="#contact">Learn more →</a>
+            </div>
+          </article>
+
+          <article class="research-card">
+            <div class="research-image-placeholder">
+              Computational science
+            </div>
+            <div class="card-body">
+              <p class="card-label">Computational methods</p>
+              <h3>Scientific modeling and visualization</h3>
+              <p>
+                Developing reproducible computational workflows to
+                analyze data, compare models with observations,
+                and communicate scientific findings.
+              </p>
+              <a href="#presentations">View presentations →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Scientific output</p>
+          <h2>Publications</h2>
+          <p>
+            Selected papers, preprints, and collaborative research.
+            Replace the examples below with verified publication details.
+          </p>
+        </div>
+
+        <div class="record-list">
+          <article class="record">
+            <div class="record-year">YEAR</div>
+            <div>
+              <h3>Publication title</h3>
+              <p>Your Name, Coauthor Names. Journal or preprint details.</p>
+              <p class="record-links">
+                <a href="https://arxiv.org/">Paper / arXiv</a>
+                ·
+                <a href="https://doi.org/">DOI</a>
+              </p>
+            </div>
+          </article>
+
+          <article class="record">
+            <div class="record-year">YEAR</div>
+            <div>
+              <h3>Another publication title</h3>
+              <p>Author list. Journal or preprint details.</p>
+              <p class="record-links">
+                <a href="https://arxiv.org/">Paper / arXiv</a>
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="presentations">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Communication</p>
+          <h2>Presentations and posters</h2>
+          <p>
+            Conference talks, seminars, posters, and other presentations
+            related to my research.
+          </p>
+        </div>
+
+        <div class="record-list">
+          <article class="record">
+            <div class="record-year">YEAR</div>
+            <div>
+              <h3>Presentation title</h3>
+              <p>Conference or seminar · Institution or location</p>
+              <p class="record-links">
+                <a href="#presentations">Slides or poster link</a>
+              </p>
+            </div>
+          </article>
+
+          <article class="record">
+            <div class="record-year">YEAR</div>
+            <div>
+              <h3>Another presentation title</h3>
+              <p>Meeting or department · Institution or location</p>
+              <p class="record-links">
+                <a href="#presentations">Slides or poster link</a>
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cv">
+      <div class="container">
+        <div class="cv-box">
+          <div>
+            <h3>Curriculum vitae</h3>
+            <p>
+              Education, research experience, publications, presentations,
+              and academic activities.
+            </p>
+          </div>
+          <a class="button" href="cv.pdf">View CV (PDF) ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h3>Get in touch</h3>
+          <p>
+            For questions about my research, scientific collaboration,
+            or academic opportunities, please reach out.
+          </p>
+          <p>
+            <a href="mailto:YOUR_EMAIL@example.com">
+              YOUR_EMAIL@example.com
+            </a>
+          </p>
+        </div>
+
+        <div>
+          <p class="eyebrow">Elsewhere</p>
+          <h3>Academic profiles</h3>
+          <p>
+            <a href="https://github.com/YOUR_GITHUB_USERNAME">
+              GitHub profile
+            </a>
+          </p>
+          <p>
+            <a href="https://orcid.org/">ORCID profile</a>
+          </p>
+          <p>
+            <a href="https://scholar.google.com/">
+              Google Scholar profile
+            </a>
+          </p>
+          <p>
+            <a href="https://www.linkedin.com/">
+              LinkedIn profile
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Your Name</span>
+      <span>Academic website · Hosted with GitHub Pages</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+      const open = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(open));
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
+</body>
+</html>
